@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
+import { Container } from '../styles/Home'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <title>Template Next Tipescript</title>
       </Head>
       <section>
         <h1>Template using typescript and Sass</h1>
       </section>
-    </div>
+    </Container>
   )
 }
