@@ -3,7 +3,7 @@
 - 📏 **ESLint** — Pluggable JavaScript linter
 - 💖 **Prettier** - Opinionated Code Formatter
 - 🗂 **Absolute import** - Import folders and files using the `@` prefix
-- 🪄 **CSS with Super Powers** - Using Sass for style sheet
+- 💅 **CSS with Super Powers** - Using Styled Components for style sheet
 
 ## 🚀 Getting started
 
