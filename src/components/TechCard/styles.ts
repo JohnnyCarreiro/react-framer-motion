@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const TechContainer = styled.div`
@@ -68,7 +69,7 @@ export const TechWrapper = styled.div`
   justify-content: center;
 `
 
-export const Tech = styled.div`
+export const Tech = styled(motion.div)`
   width: auto;
   height: 190px;
   z-index: 99;
