@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const TechContainer = styled.div`
+export const CardWrapper = styled.div`
+  width:100%;
+  perspective:2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const TechContainer = styled(motion.div)`
   width: 285px;
   height: 500px;
   display: flex;
