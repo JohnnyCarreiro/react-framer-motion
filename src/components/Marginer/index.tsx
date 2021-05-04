@@ -4,6 +4,7 @@ import { HorizontalMargin, VerticalMargin } from './styles'
 
 type MarginerProps = {
   direction: string
+  margin: string
   children?: ReactNode
 }
 
