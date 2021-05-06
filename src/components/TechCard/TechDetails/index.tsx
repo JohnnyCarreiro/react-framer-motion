@@ -10,7 +10,7 @@ interface TechDetailsProps {
 function TechDetails({ children }: TechDetailsProps) {
   return (
     <DetailsContainer>
-      <SmallText>Javascript white superpowers</SmallText>
+      <SmallText>Javascript with superpowers</SmallText>
       <SpaceHorizontalContainer>
         <MediumText>Some other information</MediumText>
       </SpaceHorizontalContainer>

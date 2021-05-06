@@ -8,7 +8,9 @@ export default function Home() {
       <Head>
         <title>Template Next Tipescript</title>
       </Head>
-      <TechCard />
+      <TechCard>
+        <img src="/images/typescript.svg" alt="typescript logo"/>
+      </TechCard>
     </Container>
   )
 }

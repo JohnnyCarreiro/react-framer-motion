@@ -1,5 +1,6 @@
-import { useMotionValue, useTransform } from 'framer-motion'
-import { ReactNode } from 'react'
+import { MutableRefObject, ReactNode, useRef, useState } from "react"
+import { useSpring, config, SpringRef } from "react-spring"
+
 
 import {
   CardWrapper,
@@ -14,30 +15,36 @@ import {
 } from './styles'
 import TechDetails from './TechDetails'
 
+const calc = (x:number, y:number, rect:DOMRect, p?:number, n?:number, s?:number) => [
+  -(y - Number(rect?.top) - Number(rect?.height) /(p ? p : 2)) /(n ? n : 30),
+  (x - Number(rect?.left) - Number(rect?.width) /(p ? p : 2)) /(n ? n : 30),
+  (s ? s : 1.12),
+]
+const trans = (x:number, y:number, s:number) =>
+  `perspective(700px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
 interface TechCardProps {
   children?: ReactNode;
 }
 
 function TechCard({ children }: TechCardProps) {
 
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const rotateX = useTransform(y,[-100, 100], [30, -30])
-  const rotateY= useTransform(x,[-100, 100], [-30, 30])
+  const ref = useRef<HTMLDivElement>(null)
+  const [xys, set] = useState([0, 0, 1])
+  const props = useSpring({ xys, config: config['wobbly'] })
 
   return (
     <CardWrapper>
       <TechContainer
-        style={{ x, y, rotateX, rotateY, z:100 }}
-        drag
-        dragElastic={0.16}
-        dragConstraints={{
-          top: 0,
-          right: 0,
-          left: 0,
-          bottom: 0
+        ref={ref}
+        style={{
+          transform: props.xys.to(trans)
         }}
-        whileTap={{ cursor:'grabbing' }}
+        onMouseLeave={() => set([0, 0, 1])}
+        onMouseMove={(e) => {
+          const rect = ref.current?.getBoundingClientRect()
+          set(calc(e.clientX, e.clientY, rect as DOMRect, 1, 30, 1.05))
+        }}
       >
         <TopContainer>
           <CircleWrapper>
@@ -45,18 +52,17 @@ function TechCard({ children }: TechCardProps) {
           </CircleWrapper>
           <TechWrapper>
             <Tech
+            ref={ref}
               style={{
-                x,
-                y,
-                rotateX,
-                rotateY,
-                z: 100000
+                transform: props.xys.to(trans)
               }}
-              drag
-              dragElastic={0.12}
-              whileTap={{ cursor: "grabbing" }}
+              onMouseLeave={() => set([0, 0, 1])}
+              onMouseMove={(e) => {
+                const rect = ref.current?.getBoundingClientRect()
+                set(calc(e.clientX, e.clientY, rect as DOMRect, 1, 2, -1.9 ))
+              }}
             >
-              <img src="/images/typescript.svg" alt="typescript logo"/>
+              {children}
             </Tech>
           </TechWrapper>
           <TechTitle>Typescript</TechTitle>

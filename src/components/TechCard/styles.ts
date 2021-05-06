@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { animated } from 'react-spring'
 
 export const CardWrapper = styled.div`
   width:100%;
@@ -9,7 +10,7 @@ export const CardWrapper = styled.div`
   justify-content: center;
 `
 
-export const TechContainer = styled(motion.div)`
+export const TechContainer = styled(animated.div)`
   width: 285px;
   height: 500px;
   display: flex;
@@ -77,7 +78,7 @@ export const TechWrapper = styled.div`
   justify-content: center;
 `
 
-export const Tech = styled(motion.div)`
+export const Tech = styled(animated.div)`
   width: auto;
   height: 190px;
   z-index: 99;
