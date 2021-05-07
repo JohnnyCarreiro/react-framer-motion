@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { animated } from 'react-spring'
 
 export const CardWrapper = styled.div`
@@ -20,7 +19,6 @@ export const TechContainer = styled(animated.div)`
   background-color: #1D1F21;
   color: var(--white);
   position: relative;
-  cursor: grab;
 `
 
 export const CircleWrapper = styled.div`
@@ -65,8 +63,6 @@ export const TechTitle = styled.h2`
   text-transform: uppercase;
   margin: 0;
   z-index: 10;
-  /* font-size: 2.75rem;
-  font-weight: 900; */
   font: ${({theme})=> theme.texts.title};
 `
 export const TechWrapper = styled.div`

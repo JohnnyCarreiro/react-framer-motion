@@ -59,7 +59,7 @@ function TechCard({ children }: TechCardProps) {
               onMouseLeave={() => set([0, 0, 1])}
               onMouseMove={(e) => {
                 const rect = ref.current?.getBoundingClientRect()
-                set(calc(e.clientX, e.clientY, rect as DOMRect, 1, 2, -1.9 ))
+                set(calc(e.clientX, e.clientY, rect as DOMRect, 1, 2, 1.9 ))
               }}
             >
               {children}

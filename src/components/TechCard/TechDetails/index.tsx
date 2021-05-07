@@ -17,7 +17,9 @@ function TechDetails({ children }: TechDetailsProps) {
       <Marginer direction="vertical" margin="1.2em" />
       <SpaceHorizontalContainer>
         <SmallText>Your next lang</SmallText>
-        <KnowMoreButton>More</KnowMoreButton>
+        <KnowMoreButton type="button">
+          <a href="#" target="_blank" rel="noopener noreferrer">More</a>
+        </KnowMoreButton>
       </SpaceHorizontalContainer>
     </DetailsContainer>
   );
